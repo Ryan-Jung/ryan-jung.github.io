@@ -1,6 +1,13 @@
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script>
+    let savedJqueryOn = $.fn.on;
+    $.fn.on = (e,t,n,r) => {
+    console.log(e,t,n,r);
+    savedJqueryOn(e,t,r,n)
+    window.register = {$(this), e,t,n,r};
+        
+    }
     let setClickable = _ => {
       $('#clickable1').on('click', _ =>{
         alert('clickable1');
