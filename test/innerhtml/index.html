@@ -1,7 +1,12 @@
 <head>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script>
-  
+    $.fn.on = (e,t,n,r) =>{
+
+     console.log(this,e,t,n,r);
+     window.register = [this[0], e, t, n, r]
+     save.call(this,e,t,n,r);
+    }
     let setClickable = _ => {
       $('#clickable1').on('click', _ =>{
         alert('clickable1');
@@ -38,7 +43,7 @@
         let creativeEditHtml = '\n    <div id="clickable1" style="width:150px;height:20px;color:green;border: dashed green .5px">I am clickable 1</div>\n    <div id="innerContainer">\n      <div id="clickable2" style="width:150px;height:20px;color:red;border: dashed red .5px">I am clickable 2</div>\n      <div id="clickable3" style="width:150px;height:20px;color:blue; border: dashed blue .5px">I am clickable 25</div>\n <div>helloworld</div>\n  </div>\n  ';
         controlSave.html(creativeEditHtml);
         parent.append(controlSave);
-      
+       $(window.register[0]).on('click' , window.register[2])
       },1000);
   </script>
 </body>
