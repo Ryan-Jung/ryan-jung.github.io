@@ -2,10 +2,11 @@
   <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
   <script>
     let save = $.fn.on;
+    window.register = [];
     $.fn.on = function(e,t,n,r){
 
      console.log(this,e,t,n,r);
-     window.register = [this[0].id, e, t, n, r]
+     window.register = window.register.push( [this[0].id, e, t, n, r] )
      save.call(this,e,t,n,r);
     }
     let setClickable = _ => {
