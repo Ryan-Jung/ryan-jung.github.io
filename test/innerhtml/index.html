@@ -6,7 +6,7 @@
     $.fn.on = function(e,t,n,r){
 
      console.log(this,e,t,n,r);
-     window.register = window.register.push( [this[0].id, e, t, n, r] )
+     window.register.push( [this[0].id, e, t, n, r] )
      save.call(this,e,t,n,r);
     }
     let setClickable = _ => {
