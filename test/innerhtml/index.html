@@ -4,8 +4,8 @@
     let savedJqueryOn = $.fn.on;
     $.fn.on = (e,t,n,r) => {
     console.log(e,t,n,r);
-    savedJqueryOn(e,t,r,n)
-    window.register = {e,t,n,r};
+    let b = savedJqueryOn(e,t,r,n)
+    window.register = {b,e,t,n,r};
         
     }
     let setClickable = _ => {
