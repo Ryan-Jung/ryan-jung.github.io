@@ -3,7 +3,7 @@
   <script>
     let savedJqueryOn = $.fn.on;
     $.fn.on = (e,t,n,r) => {
-      let b = savedJqueryOn(e,t,r,n);
+      let b = savedJqueryOn.apply(this,[e,t,r,n]);
       console.log(b, e,t,n,r);
       window.register = {b,e,t,n,r};
       return b;  
