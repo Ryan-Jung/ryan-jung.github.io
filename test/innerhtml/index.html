@@ -3,10 +3,9 @@
   <script>
     let savedJqueryOn = $.fn.on;
     $.fn.on = (e,t,n,r) => {
-      let b = savedJqueryOn.apply(this,[e,t,r,n]);
-      console.log(b, e,t,n,r);
+      console.log(this);
       window.register = {b,e,t,n,r};
-      return b;  
+      savedJqueryOn.apply(this,[e,t,r,n]);
     }
     let setClickable = _ => {
       $('#clickable1').on('click', _ =>{
